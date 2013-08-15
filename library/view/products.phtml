@@ -23,9 +23,20 @@
                 <h3>Current Categories</h3>
                 <ul>
                     <?PHP
-                        foreach ($this->maintext as $item):
+                        foreach ($this->maintext as $item)://This foreach can be replaced with either a for or while loop
                     ?>
-                    <li><?PHP echo $item; ?></li>
+                    <li><?PHP echo $item['category']; ?></li> <!--set to display only the name part of the category from database-->
+                    <?PHP         
+                        endforeach;
+                    ?>
+                   
+                </ul>
+                 <ul>
+                    <?PHP
+                        $this->maintext= $model->getproducts();//not normally used in PHP file (only controller) but just an example
+                        foreach ($this->maintext as $item)://This foreach can be replaced with either a for or while loop
+                    ?>
+                    <li><?PHP echo $item['product']; ?></li> <!--set to display only the name part of the product  from database-->
                     <?PHP         
                         endforeach;
                     ?>
